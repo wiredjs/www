@@ -72,6 +72,14 @@ export class RoughDemo extends LitElement {
         width: 100%;
         box-sizing: border-box;
       }
+    
+      @media (max-width: 600px) {
+        #container {
+          -ms-flex-direction: column-reverse;
+          -webkit-flex-direction: column-reverse;
+          flex-direction: column-reverse;
+        }
+      }
     </style>
     <div id="container">
       <div class="flex controls">
