@@ -1,0 +1,32 @@
+{
+  "name": "wiredjs",
+  "version": "0.1.0",
+  "description": "wiredjs website",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "build": "rollup -c",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wiredjs/www.git"
+  },
+  "author": "Preet Shihn",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wiredjs/www/issues"
+  },
+  "homepage": "https://github.com/wiredjs/www#readme",
+  "dependencies": {
+    "@polymer/lit-element": "^0.5.1",
+    "@webcomponents/webcomponentsjs": "^2.0.0",
+    "roughjs": "^2.1.3",
+    "wired-elements": "^0.5.1"
+  },
+  "devDependencies": {
+    "rollup": "^0.59.2",
+    "rollup-plugin-babel-minify": "^5.0.0",
+    "rollup-plugin-node-resolve": "^3.3.0"
+  }
+}
