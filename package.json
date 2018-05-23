@@ -22,7 +22,7 @@
     "@polymer/lit-element": "^0.5.1",
     "@webcomponents/webcomponentsjs": "^2.0.0",
     "roughjs": "^2.1.3",
-    "wired-elements": "^0.5.1"
+    "wired-elements": "^0.5.3"
   },
   "devDependencies": {
     "rollup": "^0.59.2",
