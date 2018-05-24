@@ -19,5 +19,15 @@ export default [
     },
     onwarn,
     plugins: [resolve(), minify({ comments: false })]
+  },
+  {
+    input: 'src/showcase-app.js',
+    output: {
+      file: `${outFolder}/showcase.min.js`,
+      format: 'iife',
+      name: 'WebElementsShowcase'
+    },
+    onwarn,
+    plugins: [resolve(), minify({ comments: false })]
   }
 ];
