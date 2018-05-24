@@ -21,10 +21,6 @@ import './controls/textarea-example';
 import './controls/toggle-example';
 import './controls/tooltip-example';
 
-export const menuIcon = html`<svg height="24" viewBox="0 0 24 24" width="24">
-  <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
-</svg>`;
-
 export class ShowcaseApp extends LitElement {
   _render({ page }) {
     return html`
@@ -43,6 +39,21 @@ export class ShowcaseApp extends LitElement {
         margin: 0 10px 0 -10px;
       }
     
+      .menu-btn2 {
+        background: none;
+        border: none;
+        fill: #000;
+        cursor: pointer;
+        height: 44px;
+        width: 44px;
+        margin: 0 -10px 0 10px;
+      }
+    
+      .menu-btn2 mwc-icon,
+      .menu-btn mwc-icon {
+        pointer-events: none;
+      }
+    
       .drawer-list {
         box-sizing: border-box;
         width: 100%;
@@ -51,6 +62,9 @@ export class ShowcaseApp extends LitElement {
         color: #fff;
         background: #37474F;
         position: relative;
+        overflow-x: hidden;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
       }
     
       .navItem {
@@ -98,9 +112,15 @@ export class ShowcaseApp extends LitElement {
           display: none;
         }
       }
+    
+      @media (max-width: 600px) {
+        app-toolbar {
+          font-size: 20px;
+        }
+      }
     </style>
-    <app-drawer-layout>
-      <app-drawer slot="drawer">
+    <app-drawer-layout id="drawerLayout">
+      <app-drawer id="drawer" slot="drawer">
         <nav class="drawer-list">
           <div>
             <a href="/">
@@ -115,8 +135,15 @@ export class ShowcaseApp extends LitElement {
       <app-header-layout>
         <app-header slot="header" reveals>
           <app-toolbar>
-            <button class="menu-btn" title="Menu" drawer-toggle>${menuIcon}</button>
+            <button class="menu-btn" title="Menu" drawer-toggle>
+              <mwc-icon>menu</mwc-icon>
+            </button>
             <div main-title>${page ? page.label : ''}</div>
+            <a href$="${page ? page.url : ''}" target="_blank" rel="noopener">
+              <button class="menu-btn2" title="Code">
+                <mwc-icon>launch</mwc-icon>
+              </button>
+            </a>
           </app-toolbar>
         </app-header>
         <main>
@@ -147,6 +174,10 @@ export class ShowcaseApp extends LitElement {
   }
 
   _navigate(item) {
+    const narrow = this.shadowRoot.getElementById('drawerLayout').narrow;
+    if (narrow) {
+      this.shadowRoot.getElementById('drawer').toggle();
+    }
     this._setPage(item);
   }
 

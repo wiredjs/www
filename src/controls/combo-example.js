@@ -9,6 +9,10 @@ export class ComboExample extends LitElement {
         display: block;
         padding: 16px;
       }
+    
+      wired-combo {
+        margin: 10px;
+      }
     </style>
     <wired-combo selected="two">
       <wired-item value="one" text="Number one"></wired-item>

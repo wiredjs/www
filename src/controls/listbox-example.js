@@ -10,6 +10,10 @@ export class ListboxExample extends LitElement {
         padding: 16px;
       }
     
+      wired-listbox {
+        margin: 5px;
+      }
+    
       .customListBox {
         --wired-combo-item-selected-bg: #fff59d;
         --wired-combo-item-hover-bg: #9df59d;

@@ -8,10 +8,13 @@ export class TextareaExample extends LitElement {
       :host {
         display: block;
         padding: 16px;
+        box-sizing: border-box;
       }
     
       wired-textarea {
-        margin: 10px;
+        margin: 10px 0;
+        box-sizing: border-box;
+        max-width: 100%;
       }
     </style>
     <wired-textarea placeholder="Enter text" rows="3"></wired-textarea>

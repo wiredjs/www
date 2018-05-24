@@ -8,10 +8,13 @@ export class SliderExample extends LitElement {
       :host {
         display: block;
         padding: 16px;
+        box-sizing: border-box;
       }
     
       wired-slider {
         margin: 5px 0;
+        max-width: 100%;
+        box-sizing: border-box;
       }
     
       .custom {

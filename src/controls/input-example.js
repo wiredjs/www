@@ -11,7 +11,7 @@ export class InputExample extends LitElement {
       }
     
       wired-input {
-        margin: 0 15px;
+        margin: 5px 15px;
       }
     </style>
     <wired-input placeholder="Enter name"></wired-input>
