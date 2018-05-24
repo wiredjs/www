@@ -6,12 +6,26 @@ import '@polymer/app-layout/app-drawer/app-drawer.js';
 import '@polymer/app-layout/app-header-layout/app-header-layout.js';
 import '@polymer/app-layout/app-header/app-header.js';
 import '@polymer/app-layout/app-toolbar/app-toolbar.js';
+import './controls/button-example';
+import './controls/card-example';
+import './controls/checkbox-example';
+import './controls/combo-example';
+import './controls/iconbutton-example';
+import './controls/input-example';
+import './controls/listbox-example';
+import './controls/progress-example';
+import './controls/radio-example';
+import './controls/radiogroup-example';
+import './controls/slider-example';
+import './controls/textarea-example';
+import './controls/toggle-example';
+import './controls/tooltip-example';
 
 export const menuIcon = html`<svg height="24" viewBox="0 0 24 24" width="24">
   <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
 </svg>`;
 
-class ShowcaseApp extends LitElement {
+export class ShowcaseApp extends LitElement {
   _render({ page }) {
     return html`
     <style>
@@ -26,6 +40,7 @@ class ShowcaseApp extends LitElement {
         cursor: pointer;
         height: 44px;
         width: 44px;
+        margin: 0 10px 0 -10px;
       }
     
       .drawer-list {
@@ -105,6 +120,20 @@ class ShowcaseApp extends LitElement {
           </app-toolbar>
         </app-header>
         <main>
+          <button-example class="button page"></button-example>
+          <card-example class="card page"></card-example>
+          <checkbox-example class="checkbox page"></checkbox-example>
+          <combo-example class="combo page"></combo-example>
+          <iconbutton-example class="iconbutton page"></iconbutton-example>
+          <input-example class="input page"></input-example>
+          <listbox-example class="listbox page"></listbox-example>
+          <progress-example class="progress page"></progress-example>
+          <radio-example class="radio page"></radio-example>
+          <radiogroup-example class="radiogroup page"></radiogroup-example>
+          <slider-example class="slider page"></slider-example>
+          <textarea-example class="textarea page"></textarea-example>
+          <toggle-example class="toggle page"></toggle-example>
+          <tooltip-example class="tooltip page"></tooltip-example>
         </main>
       </app-header-layout>
     </app-drawer-layout>
@@ -144,6 +173,9 @@ class ShowcaseApp extends LitElement {
         const p = pages[i];
         if (p.classList.contains(item.name)) {
           p.classList.remove('hidden');
+          if (p.onActivate) {
+            setTimeout(() => p.onActivate());
+          }
         } else {
           p.classList.add('hidden');
         }
