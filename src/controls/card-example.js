@@ -46,7 +46,7 @@ export class CardExample extends LitElement {
     setTimeout(() => {
       const cards = this.shadowRoot.querySelectorAll('wired-card');
       for (let i = 0; i < cards.length; i++) {
-        cards[i]._requestRender();
+        cards[i].requestRender();
       }
     });
   }
