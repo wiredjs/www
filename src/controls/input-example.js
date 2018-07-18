@@ -24,7 +24,7 @@ export class InputExample extends LitElement {
     setTimeout(() => {
       const nodes = this.shadowRoot.querySelectorAll('wired-input');
       for (let i = 0; i < nodes.length; i++) {
-        nodes[i]._requestRender();
+        nodes[i].requestRender();
       }
     });
   }

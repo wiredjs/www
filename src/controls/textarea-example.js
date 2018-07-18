@@ -26,7 +26,7 @@ export class TextareaExample extends LitElement {
     setTimeout(() => {
       const nodes = this.shadowRoot.querySelectorAll('wired-textarea');
       for (let i = 0; i < nodes.length; i++) {
-        nodes[i]._requestRender();
+        nodes[i].requestRender();
       }
     });
   }

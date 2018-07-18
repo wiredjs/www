@@ -39,7 +39,7 @@ export class ListboxExample extends LitElement {
     setTimeout(() => {
       const nodes = this.shadowRoot.querySelectorAll('wired-listbox');
       for (let i = 0; i < nodes.length; i++) {
-        nodes[i]._requestRender();
+        nodes[i].requestRender();
       }
     });
   }
