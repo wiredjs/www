@@ -28,6 +28,6 @@ export default [
       name: 'WebElementsShowcase'
     },
     onwarn,
-    plugins: [resolve()]
+    plugins: [resolve(), minify({ comments: false })]
   }
 ];
