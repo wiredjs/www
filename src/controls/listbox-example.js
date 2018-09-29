@@ -2,7 +2,7 @@ import { LitElement, html } from '@polymer/lit-element';
 import '../../node_modules/wired-elements/wired-elements.js';
 
 export class ListboxExample extends LitElement {
-  _render() {
+  render() {
     return html`
     <style>
       :host {
@@ -39,7 +39,7 @@ export class ListboxExample extends LitElement {
     setTimeout(() => {
       const nodes = this.shadowRoot.querySelectorAll('wired-listbox');
       for (let i = 0; i < nodes.length; i++) {
-        nodes[i].requestRender();
+        nodes[i].requestUpdate();
       }
     });
   }

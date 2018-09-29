@@ -2,7 +2,7 @@ import { LitElement, html } from '@polymer/lit-element';
 import '../../node_modules/wired-elements/wired-elements.js';
 
 export class TextareaExample extends LitElement {
-  _render() {
+  render() {
     return html`
     <style>
       :host {
@@ -26,7 +26,7 @@ export class TextareaExample extends LitElement {
     setTimeout(() => {
       const nodes = this.shadowRoot.querySelectorAll('wired-textarea');
       for (let i = 0; i < nodes.length; i++) {
-        nodes[i].requestRender();
+        nodes[i].requestUpdate();
       }
     });
   }

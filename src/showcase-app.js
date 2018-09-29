@@ -1,5 +1,5 @@
 import { LitElement, html } from '@polymer/lit-element';
-import { repeat } from 'lit-html/lib/repeat.js';
+import { repeat } from 'lit-html/directives/repeat.js';
 import { controls } from './controls/controls';
 import '@polymer/app-layout/app-drawer-layout/app-drawer-layout.js';
 import '@polymer/app-layout/app-drawer/app-drawer.js';
@@ -22,7 +22,14 @@ import './controls/toggle-example';
 import './controls/tooltip-example';
 
 export class ShowcaseApp extends LitElement {
-  _render({ page }) {
+  static get properties() {
+    return {
+      page: { type: Object }
+    };
+  }
+
+  render() {
+    const page = this.page;
     return html`
     <style>
       :host {
@@ -128,7 +135,7 @@ export class ShowcaseApp extends LitElement {
             </a>
           </div>
           ${repeat(controls, (i) => i.name, (i, index) => html`
-          <div class="navItem" data-name$="${i.name}" on-click="${() => this._navigate(i)}">${i.label}</div>
+          <div class="navItem" data-name="${i.name}" @click="${() => this._navigate(i)}">${i.label}</div>
           `)}
         </nav>
       </app-drawer>
@@ -139,7 +146,7 @@ export class ShowcaseApp extends LitElement {
               <mwc-icon>menu</mwc-icon>
             </button>
             <div main-title>${page ? page.label : ''}</div>
-            <a href$="${page ? page.url : ''}" target="_blank" rel="noopener">
+            <a href="${page ? page.url : ''}" target="_blank" rel="noopener">
               <button class="menu-btn2" title="Code">
                 <mwc-icon>launch</mwc-icon>
               </button>
@@ -167,11 +174,7 @@ export class ShowcaseApp extends LitElement {
     `;
   };
 
-  static get properties() {
-    return {
-      page: Object
-    };
-  }
+
 
   _navigate(item) {
     const narrow = this.shadowRoot.getElementById('drawerLayout').narrow;
@@ -181,7 +184,7 @@ export class ShowcaseApp extends LitElement {
     this._setPage(item);
   }
 
-  _firstRendered() {
+  firstUpdated() {
     this._setPage(controls[0]);
   }
 

@@ -2,7 +2,7 @@ import { LitElement, html } from '@polymer/lit-element';
 import '../../node_modules/wired-elements/wired-elements.js';
 
 export class SliderExample extends LitElement {
-  _render() {
+  render() {
     return html`
     <style>
       :host {
@@ -36,7 +36,7 @@ export class SliderExample extends LitElement {
     setTimeout(() => {
       const nodes = this.shadowRoot.querySelectorAll('wired-slider');
       for (let i = 0; i < nodes.length; i++) {
-        nodes[i]._firstRendered();
+        nodes[i].firstUpdated();
       }
     });
   }
