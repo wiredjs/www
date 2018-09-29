@@ -2,7 +2,7 @@ import { LitElement, html } from '@polymer/lit-element';
 import '../../node_modules/wired-elements/wired-elements.js';
 
 export class RadioExample extends LitElement {
-  _render() {
+  render() {
     return html`
     <style>
       :host {

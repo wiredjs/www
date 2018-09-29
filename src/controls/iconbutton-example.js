@@ -2,7 +2,7 @@ import { LitElement, html } from '@polymer/lit-element';
 import '../../node_modules/wired-elements/wired-elements.js';
 
 export class IconButtonExample extends LitElement {
-  _render() {
+  render() {
     return html`
     <style>
       :host {
@@ -40,7 +40,7 @@ export class IconButtonExample extends LitElement {
     setTimeout(() => {
       const nodes = this.shadowRoot.querySelectorAll('wired-icon-button');
       for (let i = 0; i < nodes.length; i++) {
-        nodes[i].requestRender();
+        nodes[i].requestUpdate();
       }
     });
   }

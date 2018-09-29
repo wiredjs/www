@@ -2,7 +2,7 @@ import '../node_modules/wired-elements/wired-elements.js';
 import { LitElement, html } from '@polymer/lit-element';
 
 export class RoughDemo extends LitElement {
-  _render() {
+  render() {
     return html`
     <style>
       :host {
@@ -84,11 +84,11 @@ export class RoughDemo extends LitElement {
     <div id="container">
       <div class="flex controls">
         <div style="padding: 5px 0;">
-          <wired-checkbox id="strokeShape" text="Stroke shape" checked on-change="${() => this._draw()}"></wired-checkbox>
+          <wired-checkbox id="strokeShape" text="Stroke shape" checked @change="${() => this._draw()}"></wired-checkbox>
         </div>
         <div>
           <label>Color</label>
-          <wired-combo id="colorCombo" selected="red" on-selected="${() => this._draw()}">
+          <wired-combo id="colorCombo" selected="red" @selected="${() => this._draw()}">
             <wired-item value="red" text="Red"></wired-item>
             <wired-item value="green" text="Green"></wired-item>
             <wired-item value="blue" text="Blue"></wired-item>
@@ -96,18 +96,18 @@ export class RoughDemo extends LitElement {
         </div>
         <div>
           <label>Fill Style</label>
-          <wired-radio-group id="fillStyleGroup" selected="hachure" on-selected="${() => this._draw()}">
+          <wired-radio-group id="fillStyleGroup" selected="hachure" @selected="${() => this._draw()}">
             <wired-radio name="hachure" text="Hachure"></wired-radio>
             <wired-radio name="solid" text="Solid"></wired-radio>
           </wired-radio-group>
         </div>
         <div>
           <label>Roughness</label>
-          <wired-slider id="slider" value="33" knobradius="15" on-change="${() => this._draw()}"></wired-slider>
+          <wired-slider id="slider" value="33" knobradius="15" @change="${() => this._draw()}"></wired-slider>
         </div>
       </div>
       <div>
-        <canvas id="canvas" width "280" height="280"></canvas>
+        <canvas id="canvas" width="280" height="280"></canvas>
       </div>
     </div>
     `;
@@ -124,7 +124,7 @@ export class RoughDemo extends LitElement {
     };
   }
 
-  _firstRendered() {
+  firstUpdated() {
     this.canvas = this.shadowRoot.getElementById('canvas');
     this.ctx = this.canvas.getContext('2d');
     this.rc = rough.canvas(this.canvas);

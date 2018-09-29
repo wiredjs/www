@@ -2,7 +2,7 @@ import { LitElement, html } from '@polymer/lit-element';
 import '../../node_modules/wired-elements/wired-elements.js';
 
 export class CardExample extends LitElement {
-  _render() {
+  render() {
     return html`
     <style>
       :host {
@@ -46,7 +46,7 @@ export class CardExample extends LitElement {
     setTimeout(() => {
       const cards = this.shadowRoot.querySelectorAll('wired-card');
       for (let i = 0; i < cards.length; i++) {
-        cards[i].requestRender();
+        cards[i].requestUpdate();
       }
     });
   }

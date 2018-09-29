@@ -2,7 +2,7 @@ import { LitElement, html } from '@polymer/lit-element';
 import '../../node_modules/wired-elements/wired-elements.js';
 
 export class ProgressExample extends LitElement {
-  _render() {
+  render() {
     return html`
     <style>
       :host {
@@ -32,7 +32,7 @@ export class ProgressExample extends LitElement {
     setTimeout(() => {
       const nodes = this.shadowRoot.querySelectorAll('wired-progress');
       for (let i = 0; i < nodes.length; i++) {
-        nodes[i].requestRender();
+        nodes[i].requestUpdate();
       }
     });
   }
