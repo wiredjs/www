@@ -1,5 +1,11 @@
-import '../node_modules/wired-elements/wired-elements.js';
-import { LitElement, html } from '@polymer/lit-element';
+import { LitElement, html } from 'lit-element';
+import 'wired-slider';
+import 'wired-radio';
+import 'wired-radio-group';
+import 'wired-checkbox';
+import 'wired-combo';
+import 'wired-card';
+import 'wired-button';
 
 export class RoughDemo extends LitElement {
   render() {

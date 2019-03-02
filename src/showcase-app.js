@@ -1,4 +1,4 @@
-import { LitElement, html } from '@polymer/lit-element';
+import { LitElement, html } from 'lit-element';
 import { repeat } from 'lit-html/directives/repeat.js';
 import { controls } from './controls/controls';
 import '@polymer/app-layout/app-drawer-layout/app-drawer-layout.js';

@@ -1,5 +1,5 @@
-import { LitElement, html } from '@polymer/lit-element';
-import '../../node_modules/wired-elements/wired-elements.js';
+import { LitElement, html } from 'lit-element';
+import 'wired-elements';
 
 export class IconButtonExample extends LitElement {
   render() {
