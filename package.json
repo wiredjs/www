@@ -28,6 +28,6 @@
     "@polymer/app-layout": "^3.0.2",
     "lit-element": "^2.0.1",
     "roughjs": "^3.0.0",
-    "wired-elements": "^0.9.0-0"
+    "wired-elements": "^0.9.0-1"
   }
 }
