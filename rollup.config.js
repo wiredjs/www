@@ -1,5 +1,5 @@
-import minify from 'rollup-plugin-babel-minify';
 import resolve from 'rollup-plugin-node-resolve';
+import { terser } from "rollup-plugin-terser";
 
 function onwarn(warning) {
   if (warning.code === 'THIS_IS_UNDEFINED')
@@ -18,7 +18,7 @@ export default [
       name: 'WebElements'
     },
     onwarn,
-    plugins: [resolve(), minify({ comments: false })]
+    plugins: [resolve(), terser()]
   },
   {
     input: 'src/showcase-app.js',
@@ -28,6 +28,6 @@ export default [
       name: 'WebElementsShowcase'
     },
     onwarn,
-    plugins: [resolve(), minify({ comments: false })]
+    plugins: [resolve(), terser()]
   }
 ];

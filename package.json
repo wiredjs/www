@@ -1,6 +1,6 @@
 {
   "name": "wiredjs",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "wiredjs website",
   "private": true,
   "main": "index.js",
@@ -18,16 +18,16 @@
     "url": "https://github.com/wiredjs/www/issues"
   },
   "homepage": "https://github.com/wiredjs/www#readme",
-  "dependencies": {
-    "@polymer/app-layout": "^3.0.1",
-    "@polymer/lit-element": "^0.6.1",
-    "@webcomponents/webcomponentsjs": "^2.1.3",
-    "roughjs": "^2.2.5",
-    "wired-elements": "^0.8.0"
-  },
   "devDependencies": {
-    "rollup": "^0.59.4",
-    "rollup-plugin-babel-minify": "^5.0.0",
-    "rollup-plugin-node-resolve": "^3.4.0"
+    "@webcomponents/webcomponentsjs": "^2.2.7",
+    "rollup": "^1.4.0",
+    "rollup-plugin-node-resolve": "^4.0.1",
+    "rollup-plugin-terser": "^4.0.4"
+  },
+  "dependencies": {
+    "@polymer/app-layout": "^3.0.2",
+    "lit-element": "^2.0.1",
+    "roughjs": "^3.0.0",
+    "wired-elements": "^0.9.0-0"
   }
 }
