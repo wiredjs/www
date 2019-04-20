@@ -1,11 +1,16 @@
 import { LitElement, html } from 'lit-element';
-import { repeat } from 'lit-html/directives/repeat.js';
 import { controls } from './controls/controls';
-import '@polymer/app-layout/app-drawer-layout/app-drawer-layout.js';
-import '@polymer/app-layout/app-drawer/app-drawer.js';
-import '@polymer/app-layout/app-header-layout/app-header-layout.js';
-import '@polymer/app-layout/app-header/app-header.js';
-import '@polymer/app-layout/app-toolbar/app-toolbar.js';
+import { iconMap } from 'soso/bin/components/icon-map';
+import { repeat } from 'lit-html/directives/repeat';
+import 'wired-elements';
+
+import 'soso/bin/components/app-shell';
+import 'soso/bin/components/app-bar';
+import 'soso/bin/components/icon-button';
+import 'soso/bin/components/selector';
+import 'soso/bin/components/list';
+import 'soso/bin/components/item';
+
 import './controls/button-example';
 import './controls/card-example';
 import './controls/checkbox-example';
@@ -14,12 +19,14 @@ import './controls/iconbutton-example';
 import './controls/input-example';
 import './controls/listbox-example';
 import './controls/progress-example';
-import './controls/radio-example';
 import './controls/radiogroup-example';
 import './controls/slider-example';
 import './controls/textarea-example';
 import './controls/toggle-example';
-import './controls/tooltip-example';
+
+iconMap.define({
+  menu: 'M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z'
+})
 
 export class ShowcaseApp extends LitElement {
   static get properties() {
@@ -28,198 +35,111 @@ export class ShowcaseApp extends LitElement {
     };
   }
 
+  constructor() {
+    super();
+    this.page = controls[0];
+  }
+
   render() {
-    const page = this.page;
+    const selected = this.page ? this.page.name : '';
     return html`
     <style>
       :host {
         display: block;
+        --soso-drawer-overlay-bg: #37474F;
+        --soso-app-drawer-width: 250px;
+        --soso-highlight-color: #f0e6f4;
+        --soso-highlight-foreground: #37474F;
       }
-    
-      .menu-btn {
-        background: none;
-        border: none;
-        fill: #000;
-        cursor: pointer;
-        height: 44px;
-        width: 44px;
-        margin: 0 10px 0 -10px;
+      #title {
+        text-align: center;
       }
-    
-      .menu-btn2 {
-        background: none;
-        border: none;
-        fill: #000;
-        cursor: pointer;
-        height: 44px;
-        width: 44px;
-        margin: 0 -10px 0 10px;
-      }
-    
-      .menu-btn2 mwc-icon,
-      .menu-btn mwc-icon {
-        pointer-events: none;
-      }
-    
-      .drawer-list {
-        box-sizing: border-box;
-        width: 100%;
-        height: 100%;
-        padding: 20px 0;
-        color: #fff;
+      soso-app-bar {
         background: #37474F;
-        position: relative;
-        overflow-x: hidden;
-        overflow-y: auto;
-        -webkit-overflow-scrolling: touch;
+        color: white;
       }
-    
-      .navItem {
-        padding: 5px 16px;
-        cursor: pointer;
-      }
-    
-      .navItem.selected {
-        box-shadow: 8px 0 #f0e6f4 inset;
-      }
-    
-      .navItem:hover {
-        box-shadow: 8px 0 #f0e6f4 inset;
-      }
-    
       #logo {
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        padding: 0 16px;
+        height: 40px;
+        width: 40px;
         display: block;
-        margin-bottom: 20px;
+        border-radius: 50%;
+        padding: 6px;
+        margin: 0 5px;
       }
-    
-      a,
-      a:hover,
-      a:visited {
+      a, a:hover, a:visited {
         color: inherit;
         text-decoration: none;
-        outline: none;
       }
-    
-      app-toolbar {
-        background: #f0e6f4;
-        color: #000;
-        font-size: 24px;
+      .drawerTitle {
+        text-transform: lowercase;
+        letter-spacing: 1.25px;
       }
-    
-      .hidden {
-        display: none !important;
+      soso-list {
+        display: block;
+        margin: 20px 0;
       }
-    
-      @media (min-width: 640px) {
-        .menu-btn {
+
+      @media (max-width: 960px) {
+        #toolbarTitle {
           display: none;
         }
       }
-    
-      @media (max-width: 600px) {
-        app-toolbar {
-          font-size: 20px;
-        }
-      }
     </style>
-    <app-drawer-layout id="drawerLayout">
-      <app-drawer id="drawer" slot="drawer">
-        <nav class="drawer-list">
-          <div>
-            <a href="/">
-              <img alt="Logo" id="logo" src="images/logo_400.png">
-            </a>
-          </div>
-          ${repeat(controls, (i) => i.name, (i, index) => html`
-          <div class="navItem" data-name="${i.name}" @click="${() => this._navigate(i)}">${i.label}</div>
-          `)}
-        </nav>
-      </app-drawer>
-      <app-header-layout>
-        <app-header slot="header" reveals>
-          <app-toolbar>
-            <button class="menu-btn" title="Menu" drawer-toggle>
-              <mwc-icon>menu</mwc-icon>
-            </button>
-            <div main-title>${page ? page.label : ''}</div>
-            <a href="${page ? page.url : ''}" target="_blank" rel="noopener">
-              <button class="menu-btn2" title="Code">
-                <mwc-icon>launch</mwc-icon>
-              </button>
-            </a>
-          </app-toolbar>
-        </app-header>
-        <main>
-          <button-example class="button page"></button-example>
-          <card-example class="card page"></card-example>
-          <checkbox-example class="checkbox page"></checkbox-example>
-          <combo-example class="combo page"></combo-example>
-          <iconbutton-example class="iconbutton page"></iconbutton-example>
-          <input-example class="input page"></input-example>
-          <listbox-example class="listbox page"></listbox-example>
-          <progress-example class="progress page"></progress-example>
-          <radio-example class="radio page"></radio-example>
-          <radiogroup-example class="radiogroup page"></radiogroup-example>
-          <slider-example class="slider page"></slider-example>
-          <textarea-example class="textarea page"></textarea-example>
-          <toggle-example class="toggle page"></toggle-example>
-          <tooltip-example class="tooltip page"></tooltip-example>
-        </main>
-      </app-header-layout>
-    </app-drawer-layout>
+    <soso-app-shell>
+      <soso-app-bar slot="toolbar">
+        <soso-icon-button slot="nav" icon="menu"></soso-icon-button>
+        <a href="/" slot="leading">
+          <img alt="Wired Elements Logo" id="logo" src="images/logo_400.png">
+        </a>
+        <a id="toolbarTitle" href="/" slot="leading"><div class="drawerTitle" slot="title">Wired-Elements</div></a>
+        <div slot="title" id="title">${this.page ? this.page.label : ''}</div>
+        <soso-icon-button slot="actions" icon="menu"></soso-icon-button>
+      </soso-app-bar>
+
+      <soso-app-bar slot="drawerHeader">
+        <a href="/" slot="leading">
+          <img alt="Wired Elements Logo" id="logo" src="images/logo_400.png">
+        </a>
+        <a href="/" slot="leading"><div class="drawerTitle" slot="title">Wired-Elements</div></a>
+      </soso-app-bar>
+
+      <div slot="drawer" style="color: white;">
+        <soso-list .selected="${selected}" @change="${this.onPageSelect}">
+        ${repeat(controls, (d) => d.name, (d) => html`<soso-item .value="${d.name}">${d.label}</soso-item>`)}
+        </soso-list>
+      </div>
+
+      <div slot="main">
+        <soso-selector .selected="${selected}">
+          <button-example name="button"></button-example>
+          <card-example name="card"></card-example>
+          <checkbox-example name="checkbox"></checkbox-example>
+          <combo-example name="combo"></combo-example>
+          <iconbutton-example name="iconbutton"></iconbutton-example>
+          <input-example name="input"></input-example>
+          <listbox-example name="listbox"></listbox-example>
+          <progress-example name="progress"></progress-example>
+          <radiogroup-example name="radio"></radiogroup-example>
+          <slider-example name="slider"></slider-example>
+          <textarea-example name="textarea"></textarea-example>
+          <toggle-example name="toggle"></toggle-example>
+        </soso-selector>
+      </div>
+    </soso-app-shell>
     `;
-  };
-
-
-
-  _navigate(item) {
-    const narrow = this.shadowRoot.getElementById('drawerLayout').narrow;
-    if (narrow) {
-      this.shadowRoot.getElementById('drawer').toggle();
-    }
-    this._setPage(item);
   }
 
-  firstUpdated() {
-    this._setPage(controls[0]);
-  }
-
-  _setPage(item) {
-    this.page = item;
-    const nodes = this.shadowRoot.querySelectorAll('.navItem');
-    if (nodes) {
-      for (let i = 0; i < nodes.length; i++) {
-        const n = nodes[i];
-        if (n.dataset.name === item.name) {
-          n.classList.add('selected');
-        } else {
-          n.classList.remove('selected');
-        }
+  pageByName(name) {
+    for (let i = 0; i < controls.length; i++) {
+      if (controls[i].name === name) {
+        return controls[i];
       }
     }
-    const pages = this.shadowRoot.querySelectorAll('.page');
-    if (pages) {
-      for (let i = 0; i < pages.length; i++) {
-        const p = pages[i];
-        if (p.classList.contains(item.name)) {
-          p.classList.remove('hidden');
-          if (p.onActivate) {
-            setTimeout(() => p.onActivate());
-          }
-        } else {
-          p.classList.add('hidden');
-        }
-      }
-    }
+    return controls[0];
   }
 
-  _toggleDrawer() {
-    this.shadowRoot.getElementById('drawer').toggle();
+  onPageSelect(e) {
+    this.page = this.pageByName(e.detail.selected);
   }
 }
-
 window.customElements.define('showcase-app', ShowcaseApp);

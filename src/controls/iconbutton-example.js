@@ -1,5 +1,4 @@
 import { LitElement, html } from 'lit-element';
-import 'wired-elements';
 
 export class IconButtonExample extends LitElement {
   render() {

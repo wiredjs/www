@@ -9,15 +9,14 @@ export class RadioGroupExample extends LitElement {
         display: block;
         padding: 16px;
       }
-    
       wired-radio {
-        margin: 0 15px;
+        margin: 5px;
       }
     </style>
     <wired-radio-group selected="two">
-      <wired-radio name="one" text="Radio One"></wired-radio>
-      <wired-radio name="two" text="Radio Two"></wired-radio>
-      <wired-radio name="three" text="Radio Three"></wired-radio>
+      <wired-radio name="one">Radio One</wired-radio>
+      <wired-radio name="two">Radio Two</wired-radio>
+      <wired-radio name="three">Radio Three</wired-radio>
     </wired-radio-group>
     `;
   }

@@ -1,5 +1,4 @@
 import { LitElement, html } from 'lit-element';
-import 'wired-elements';
 
 export class ButtonExample extends LitElement {
   render() {
@@ -15,11 +14,9 @@ export class ButtonExample extends LitElement {
       }
     </style>
     <wired-button>Click Me</wired-button>
-    <wired-button disabled>Disabled</wired-button>
     <wired-button elevation="3">Elevation</wired-button>
+    <wired-button disabled>Disabled</wired-button>
     `;
   }
-
 }
-
 customElements.define('button-example', ButtonExample);
