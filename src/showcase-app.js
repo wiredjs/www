@@ -23,9 +23,13 @@ import './controls/radiogroup-example';
 import './controls/slider-example';
 import './controls/textarea-example';
 import './controls/toggle-example';
+import './controls/fab-example';
+import './controls/spinner-example';
+import './controls/tabs-example';
 
 iconMap.define({
-  menu: 'M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z'
+  menu: 'M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z',
+  launch: 'M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z'
 })
 
 export class ShowcaseApp extends LitElement {
@@ -47,7 +51,7 @@ export class ShowcaseApp extends LitElement {
       :host {
         display: block;
         --soso-drawer-overlay-bg: #37474F;
-        --soso-app-drawer-width: 250px;
+        --soso-app-drawer-width: 220px;
         --soso-highlight-color: #f0e6f4;
         --soso-highlight-foreground: #37474F;
       }
@@ -72,7 +76,7 @@ export class ShowcaseApp extends LitElement {
       }
       .drawerTitle {
         text-transform: lowercase;
-        letter-spacing: 1.25px;
+        color: #f0e6f4;
       }
       soso-list {
         display: block;
@@ -93,7 +97,9 @@ export class ShowcaseApp extends LitElement {
         </a>
         <a id="toolbarTitle" href="/" slot="leading"><div class="drawerTitle" slot="title">Wired-Elements</div></a>
         <div slot="title" id="title">${this.page ? this.page.label : ''}</div>
-        <soso-icon-button slot="actions" icon="menu"></soso-icon-button>
+        <a slot="actions" target="_blank" href="${this.page ? this.page.url : ''}">
+          <soso-icon-button icon="launch"></soso-icon-button>
+        </a>
       </soso-app-bar>
 
       <soso-app-bar slot="drawerHeader">
@@ -115,12 +121,15 @@ export class ShowcaseApp extends LitElement {
           <card-example name="card"></card-example>
           <checkbox-example name="checkbox"></checkbox-example>
           <combo-example name="combo"></combo-example>
+          <fab-example name="fab"></fab-example>
           <iconbutton-example name="iconbutton"></iconbutton-example>
           <input-example name="input"></input-example>
           <listbox-example name="listbox"></listbox-example>
           <progress-example name="progress"></progress-example>
           <radiogroup-example name="radio"></radiogroup-example>
           <slider-example name="slider"></slider-example>
+          <spinner-example name="spinner"></spinner-example>
+          <tabs-example name="tabs"></tabs-example>
           <textarea-example name="textarea"></textarea-example>
           <toggle-example name="toggle"></toggle-example>
         </soso-selector>
