@@ -1,6 +1,6 @@
 {
   "name": "wiredjs",
-  "version": "0.2.0",
+  "version": "0.9.1",
   "description": "wiredjs website",
   "private": true,
   "main": "index.js",
