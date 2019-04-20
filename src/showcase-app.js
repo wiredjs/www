@@ -51,7 +51,7 @@ export class ShowcaseApp extends LitElement {
       :host {
         display: block;
         --soso-drawer-overlay-bg: #37474F;
-        --soso-app-drawer-width: 220px;
+        --soso-app-drawer-width: 235px;
         --soso-highlight-color: #f0e6f4;
         --soso-highlight-foreground: #37474F;
       }
@@ -89,7 +89,7 @@ export class ShowcaseApp extends LitElement {
         }
       }
     </style>
-    <soso-app-shell>
+    <soso-app-shell id="shell">
       <soso-app-bar slot="toolbar">
         <soso-icon-button slot="nav" icon="menu"></soso-icon-button>
         <a href="/" slot="leading">
@@ -149,6 +149,8 @@ export class ShowcaseApp extends LitElement {
 
   onPageSelect(e) {
     this.page = this.pageByName(e.detail.selected);
+    const shell = this.shadowRoot.getElementById('shell');
+    shell.drawerOpen = false;
   }
 }
 window.customElements.define('showcase-app', ShowcaseApp);
