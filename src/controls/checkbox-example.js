@@ -1,5 +1,4 @@
 import { LitElement, html } from 'lit-element';
-import 'wired-elements';
 
 export class CheckboxExample extends LitElement {
   render() {
@@ -19,10 +18,10 @@ export class CheckboxExample extends LitElement {
         --wired-checkbox-icon-color: red;
       }
     </style>
-    <wired-checkbox text="Checkbox One"></wired-checkbox>
-    <wired-checkbox text="Checkbox Two" checked></wired-checkbox>
-    <wired-checkbox text="Checkbox disabled" disabled></wired-checkbox>
-    <wired-checkbox text="Custom checkbox" class="custom"></wired-checkbox>
+    <wired-checkbox>Checkbox One</wired-checkbox>
+    <wired-checkbox checked>Checkbox Two</wired-checkbox>
+    <wired-checkbox disabled>Disabled checkbox</wired-checkbox>
+    <wired-checkbox class="custom">Styled checkbox</wired-checkbox>
     `;
   }
 

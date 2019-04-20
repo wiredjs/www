@@ -1,5 +1,4 @@
 import { LitElement, html } from 'lit-element';
-import 'wired-elements';
 
 export class ComboExample extends LitElement {
   render() {
@@ -12,17 +11,18 @@ export class ComboExample extends LitElement {
     
       wired-combo {
         margin: 10px;
+        --wired-item-selected-bg: darkblue;
       }
     </style>
     <wired-combo selected="two">
-      <wired-item value="one" text="Number one"></wired-item>
-      <wired-item value="two" text="Number two"></wired-item>
-      <wired-item value="three" text="Number three"></wired-item>
-      <wired-item value="four" text="Number four"></wired-item>
+      <wired-item value="one">Number one</wired-item>
+      <wired-item value="two">Number two</wired-item>
+      <wired-item value="three">Number three</wired-item>
+      <wired-item value="four">Number four</wired-item>
     </wired-combo>
     <wired-combo selected="one" disabled>
-      <wired-item value="one" text="Disabled"></wired-item>
-      <wired-item value="two" text="Number two"></wired-item>
+      <wired-item value="one">Dsiabled</wired-item>
+      <wired-item value="two">Number two</wired-item>
     </wired-combo>
     `;
   }
