@@ -23,5 +23,19 @@ export default [
         comments: `/xxyyzzz/`
       }
     })]
+  },
+  {
+    input: 'src/showcase.js',
+    output: {
+      file: `${outFolder}/showcase.min.js`,
+      format: 'iife',
+      name: 'WebElementsShowcase'
+    },
+    onwarn,
+    plugins: [resolve(), terser({
+      output: {
+        comments: `/xxyyzzz/`
+      }
+    })]
   }
 ];

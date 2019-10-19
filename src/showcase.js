@@ -10,6 +10,8 @@ import 'soso/bin/components/list';
 import 'soso/bin/components/item';
 import 'wired-elements';
 import './icons.js';
+import '@material/mwc-icon';
+import '@material/mwc-icon/mwc-icon-font';
 
 import './demo/button';
 import './demo/calendar';
