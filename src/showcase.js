@@ -138,6 +138,8 @@ export class ShowcaseApp extends LitElement {
     if (control) {
       this.page = control;
     }
+    const shell = this.shadowRoot.querySelector('soso-app-shell');
+    shell.drawerOpen = false;
   }
 
   updated() {
