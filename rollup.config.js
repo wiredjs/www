@@ -18,16 +18,10 @@ export default [
       name: 'WebElements'
     },
     onwarn,
-    plugins: [resolve(), terser()]
-  },
-  {
-    input: 'src/showcase-app.js',
-    output: {
-      file: `${outFolder}/showcase.min.js`,
-      format: 'iife',
-      name: 'WebElementsShowcase'
-    },
-    onwarn,
-    plugins: [resolve(), terser()]
+    plugins: [resolve(), terser({
+      output: {
+        comments: `/xxyyzzz/`
+      }
+    })]
   }
 ];
