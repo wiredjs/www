@@ -1,7 +1,6 @@
 import { LitElement, html } from 'lit-element';
-import 'wired-elements';
 
-export class InputExample extends LitElement {
+export class WiredInputDemo extends LitElement {
   render() {
     return html`
     <style>
@@ -19,16 +18,5 @@ export class InputExample extends LitElement {
     <wired-input placeholder="Disabled" disabled></wired-input>
     `;
   }
-
-  onActivate() {
-    setTimeout(() => {
-      const nodes = this.shadowRoot.querySelectorAll('wired-input');
-      for (let i = 0; i < nodes.length; i++) {
-        nodes[i].requestUpdate();
-      }
-    });
-  }
-
 }
-
-customElements.define('input-example', InputExample);
+customElements.define('wired-input-demo', WiredInputDemo);
