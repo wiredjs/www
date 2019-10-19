@@ -1,6 +1,6 @@
 import { LitElement, html } from 'lit-element';
 
-export class ComboExample extends LitElement {
+export class WiredComboDemo extends LitElement {
   render() {
     return html`
     <style>
@@ -8,7 +8,7 @@ export class ComboExample extends LitElement {
         display: block;
         padding: 16px;
       }
-
+    
       wired-combo {
         margin: 10px;
         --wired-item-selected-bg: darkblue;
@@ -24,18 +24,11 @@ export class ComboExample extends LitElement {
       <wired-item value="one">Disabled</wired-item>
       <wired-item value="two">Number two</wired-item>
     </wired-combo>
+    <wired-combo>
+      <wired-item value="one">Number one</wired-item>
+      <wired-item value="two">Number two</wired-item>
+    </wired-combo>
     `;
   }
-
-  onActivate() {
-    setTimeout(() => {
-      const nodes = this.shadowRoot.querySelectorAll('wired-combo');
-      for (let i = 0; i < nodes.length; i++) {
-        nodes[i].requestUpdate();
-      }
-    });
-  }
-
 }
-
-customElements.define('combo-example', ComboExample);
+customElements.define('wired-combo-demo', WiredComboDemo);

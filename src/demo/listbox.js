@@ -1,7 +1,6 @@
 import { LitElement, html } from 'lit-element';
-import 'wired-elements';
 
-export class ListboxExample extends LitElement {
+export class WiredListboxDemo extends LitElement {
   render() {
     return html`
     <style>
@@ -9,10 +8,12 @@ export class ListboxExample extends LitElement {
         display: block;
         padding: 16px;
       }
+    
       wired-listbox {
         margin: 5px;
         --wired-item-selected-bg: darkblue;
       }
+
       .customListBox {
         --wired-item-selected-bg: pink;
         --wired-item-selected-color: darkred;
@@ -24,7 +25,7 @@ export class ListboxExample extends LitElement {
       <wired-item value="three">No. three</wired-item>
       <wired-item value="four">No. four</wired-item>
     </wired-listbox>
-    
+
     <wired-listbox horizontal class="customListBox" selected="two">
       <wired-item value="one">No. one</wired-item>
       <wired-item value="two">No. two</wired-item>
@@ -33,16 +34,5 @@ export class ListboxExample extends LitElement {
     </wired-listbox>
     `;
   }
-
-  onActivate() {
-    setTimeout(() => {
-      const nodes = this.shadowRoot.querySelectorAll('wired-listbox, wired-item');
-      for (let i = 0; i < nodes.length; i++) {
-        nodes[i].requestUpdate();
-      }
-    });
-  }
-
 }
-
-customElements.define('listbox-example', ListboxExample);
+customElements.define('wired-listbox-demo', WiredListboxDemo);

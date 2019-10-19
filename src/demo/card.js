@@ -1,12 +1,6 @@
 import { LitElement, html } from 'lit-element';
 
-export class TabsExample extends LitElement {
-  static get properties() {
-    return {
-      selected: { type: String }
-    };
-  }
-
+export class WiredCardDemo extends LitElement {
   render() {
     return html`
     <style>
@@ -14,57 +8,48 @@ export class TabsExample extends LitElement {
         display: block;
         padding: 16px;
       }
-      wired-tabs {
-        max-width: 600px;
-        margin: 0 auto;
+
+      wired-card {
+        max-width: 100%;
+      }
+
+      .card-grid {
+        display: grid;
+        gap: 30px;
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      h4 {
+        font-family: 'Gloria Hallelujah', sans-serif;
       }
     </style>
-    <wired-tabs .selected="${this.selected}">
-      <wired-tab name="One">
+    <div class="card-grid">
+      <wired-card>
         <h4>Card 1</h4>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
           magna aliqua.
           Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
         </p>
-      </wired-tab>
-      <wired-tab name="Two">
+      </wired-card>
+      <wired-card elevation="5">
         <h4>Card 2</h4>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
           magna aliqua.
           Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
         </p>
-      </wired-tab>
-      <wired-tab name="Three">
-        <h4>Card 3</h4>
+      </wired-card>
+      <wired-card elevation="4" fill="darkred" style="color: lightyellow;">
+        <h4>Colored Card</h4>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
           magna aliqua.
           Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
         </p>
-      </wired-tab>
-      <wired-tab name="Four">
-        <h4>Card 4</h4>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-          magna aliqua.
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        </p>
-      </wired-tab>
-    </wired-tabs>
+      </wired-card>
+    </div>
     `;
   }
-
-  onActivate() {
-    setTimeout(() => {
-      this.selected = 'Three';
-      const nodes = this.shadowRoot.querySelectorAll('wired-tabs, wired-tab');
-      for (let i = 0; i < nodes.length; i++) {
-        nodes[i].requestUpdate();
-      }
-    });
-  }
 }
-
-customElements.define('tabs-example', TabsExample);
+customElements.define('wired-card-demo', WiredCardDemo);

@@ -7,6 +7,7 @@ import 'wired-checkbox';
 import 'wired-combo';
 import 'wired-card';
 import 'wired-button';
+import 'wired-item';
 
 export class RoughDemo extends LitElement {
   render() {
