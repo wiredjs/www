@@ -1,5 +1,5 @@
 import { LitElement, html } from 'lit-element';
-import rough from 'roughjs';
+import { RoughCanvas } from 'roughjs/bin/canvas';
 import 'wired-slider';
 import 'wired-radio';
 import 'wired-radio-group';
@@ -139,7 +139,7 @@ export class RoughDemo extends LitElement {
   firstUpdated() {
     this.canvas = this.shadowRoot.getElementById('canvas');
     this.ctx = this.canvas.getContext('2d');
-    this.rc = rough.canvas(this.canvas);
+    this.rc = new RoughCanvas(this.canvas);
     this.slider = this.shadowRoot.getElementById('slider');
     this.fillStyle = this.shadowRoot.getElementById('fillStyleGroup');
     this.strokeShape = this.shadowRoot.getElementById('strokeShape');

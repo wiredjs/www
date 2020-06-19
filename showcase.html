@@ -16,13 +16,13 @@
   <meta property="og:image:width" content="400">
   <meta property="og:image:height" content="400">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="@YourGuild">
   <meta name="twitter:title" content="Wired Elements">
   <meta name="twitter:description" content="Common UI Elements with a sketchy hand-drawn look.">
   <meta name="twitter:image" content="https://wiredjs.com/images/logo_400.png">
   <meta name="twitter:image:width" content="400">
   <meta name="twitter:image:height" content="400">
   <link rel="preload" href="fonts/font.woff2" as="font">
+  <link href="https://fonts.googleapis.com/css?family=Material+Icons&display=block" rel="stylesheet">
   <style>
     @font-face {
       font-family: 'Gloria Hallelujah';
@@ -47,14 +47,13 @@
     }
   </style>
 
+  <script src="https://unpkg.com/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
 </head>
 
 <body>
   <showcase-app></showcase-app>
-  <script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.2.7/webcomponents-loader.js"></script>
-  <script async src="dist/showcase.min.js"></script>
-  <!-- <script type="module" src="src/showcase.js"></script> -->
 
+  <script async src="dist/showcase.min.js"></script>
   <script>
     window.ga = window.ga || ((...args) => (ga.q = ga.q || []).push(args));
     ga("create", "UA-134693493-4", "auto");

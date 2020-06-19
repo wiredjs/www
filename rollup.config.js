@@ -1,4 +1,4 @@
-import resolve from 'rollup-plugin-node-resolve';
+import resolve from '@rollup/plugin-node-resolve';
 import { terser } from "rollup-plugin-terser";
 
 function onwarn(warning) {
@@ -20,7 +20,7 @@ export default [
     onwarn,
     plugins: [resolve(), terser({
       output: {
-        comments: `/xxyyzzz/`
+        comments: false
       }
     })]
   },
@@ -34,7 +34,7 @@ export default [
     onwarn,
     plugins: [resolve(), terser({
       output: {
-        comments: `/xxyyzzz/`
+        comments: false
       }
     })]
   }
