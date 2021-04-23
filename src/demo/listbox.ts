@@ -1,5 +1,9 @@
-import { LitElement, html } from 'lit-element';
+import { LitElement, html } from 'lit';
+import { customElement } from 'lit/decorators';
+import 'wired-elements/lib/wired-listbox.js';
+import 'wired-elements/lib/wired-item.js';
 
+@customElement('wired-listbox-demo')
 export class WiredListboxDemo extends LitElement {
   render() {
     return html`
@@ -35,4 +39,3 @@ export class WiredListboxDemo extends LitElement {
     `;
   }
 }
-customElements.define('wired-listbox-demo', WiredListboxDemo);

@@ -1,5 +1,8 @@
-import { LitElement, html } from 'lit-element';
+import { LitElement, html } from 'lit';
+import { customElement } from 'lit/decorators';
+import 'wired-elements/lib/wired-textarea.js';
 
+@customElement('wired-video-demo')
 export class WiredVideoDemo extends LitElement {
   render() {
     return html`
@@ -26,4 +29,3 @@ export class WiredVideoDemo extends LitElement {
     `;
   }
 }
-customElements.define('wired-video-demo', WiredVideoDemo);

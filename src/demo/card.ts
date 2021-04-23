@@ -1,5 +1,8 @@
-import { LitElement, html } from 'lit-element';
+import { LitElement, html } from 'lit';
+import { customElement } from 'lit/decorators';
+import 'wired-elements/lib/wired-card';
 
+@customElement('wired-card-demo')
 export class WiredCardDemo extends LitElement {
   render() {
     return html`
@@ -52,4 +55,3 @@ export class WiredCardDemo extends LitElement {
     `;
   }
 }
-customElements.define('wired-card-demo', WiredCardDemo);

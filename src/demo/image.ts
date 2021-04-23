@@ -1,5 +1,8 @@
-import { LitElement, html } from 'lit-element';
+import { LitElement, html } from 'lit';
+import { customElement } from 'lit/decorators';
+import 'wired-elements/lib/wired-image.js';
 
+@customElement('wired-image-demo')
 export class WiredImageDemo extends LitElement {
   render() {
     return html`
@@ -29,4 +32,3 @@ export class WiredImageDemo extends LitElement {
     `;
   }
 }
-customElements.define('wired-image-demo', WiredImageDemo);

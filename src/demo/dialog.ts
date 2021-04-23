@@ -1,6 +1,12 @@
-import { LitElement, html } from 'lit-element';
+import { LitElement, html } from 'lit';
+import { customElement, query } from 'lit/decorators';
+import { WiredDialog } from 'wired-elements/lib/wired-dialog';
+import 'wired-elements/lib/wired-button.js';
+import 'wired-elements/lib/wired-dialog';
 
+@customElement('wired-dialog-demo')
 export class WiredDialogDemo extends LitElement {
+  @query('wired-dialog') private dialog?: WiredDialog;
   render() {
     return html`
     <style>
@@ -28,11 +34,10 @@ export class WiredDialogDemo extends LitElement {
   }
 
   openDialog() {
-    this.shadowRoot.querySelector('wired-dialog').open = true;
+    this.dialog!.open = true;
   }
 
   closeDialog() {
-    this.shadowRoot.querySelector('wired-dialog').open = false;
+    this.dialog!.open = false;
   }
 }
-customElements.define('wired-dialog-demo', WiredDialogDemo);

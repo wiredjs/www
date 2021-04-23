@@ -1,5 +1,8 @@
-import { LitElement, html } from 'lit-element';
+import { LitElement, html } from 'lit';
+import { customElement } from 'lit/decorators';
+import 'wired-elements/lib/wired-button.js';
 
+@customElement('wired-button-demo')
 export class WiredButtonDemo extends LitElement {
   render() {
     return html`
@@ -32,4 +35,3 @@ export class WiredButtonDemo extends LitElement {
     `;
   }
 }
-customElements.define('wired-button-demo', WiredButtonDemo);

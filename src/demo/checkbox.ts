@@ -1,5 +1,8 @@
-import { LitElement, html } from 'lit-element';
+import { LitElement, html } from 'lit';
+import { customElement } from 'lit/decorators';
+import 'wired-elements/lib/wired-checkbox';
 
+@customElement('wired-checkbox-demo')
 export class WiredCheckboxDemo extends LitElement {
   render() {
     return html`
@@ -26,4 +29,3 @@ export class WiredCheckboxDemo extends LitElement {
     `;
   }
 }
-customElements.define('wired-checkbox-demo', WiredCheckboxDemo);

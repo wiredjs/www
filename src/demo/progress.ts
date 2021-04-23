@@ -1,10 +1,14 @@
-import { LitElement, html } from 'lit-element';
+import { LitElement, html } from 'lit';
+import { customElement, query } from 'lit/decorators';
+import { WiredProgress } from 'wired-elements/lib/wired-progress.js';
+import 'wired-elements/lib/wired-progress.js';
+import 'wired-elements/lib/wired-button.js';
 
+@customElement('wired-progress-demo')
 export class WiredProgressDemo extends LitElement {
-  constructor() {
-    super();
-    this.timer = 0;
-  }
+  private timer = 0;
+
+  @query('#progress') private progress?: WiredProgress;
 
   render() {
     return html`
@@ -43,7 +47,7 @@ export class WiredProgressDemo extends LitElement {
   }
 
   start() {
-    const prog = this.shadowRoot.getElementById('progress');
+    const prog = this.progress!;
     if (this.timer) {
       window.clearInterval(this.timer);
     }
@@ -57,7 +61,7 @@ export class WiredProgressDemo extends LitElement {
   }
 
   stop() {
-    const prog = this.shadowRoot.getElementById('progress');
+    const prog = this.progress!;
     if (this.timer) {
       window.clearInterval(this.timer);
       this.timer = 0;
@@ -65,4 +69,3 @@ export class WiredProgressDemo extends LitElement {
     prog.value = 0;
   }
 }
-customElements.define('wired-progress-demo', WiredProgressDemo);

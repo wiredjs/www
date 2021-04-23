@@ -1,5 +1,8 @@
-import { LitElement, html } from 'lit-element';
+import { LitElement, html } from 'lit';
+import { customElement } from 'lit/decorators';
+import 'wired-elements/lib/wired-calendar';
 
+@customElement('wired-calendar-demo')
 export class WiredCalendarDemo extends LitElement {
   render() {
     return html`
@@ -45,4 +48,3 @@ export class WiredCalendarDemo extends LitElement {
     `;
   }
 }
-customElements.define('wired-calendar-demo', WiredCalendarDemo);

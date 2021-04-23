@@ -1,5 +1,8 @@
-import { LitElement, html } from 'lit-element';
+import { LitElement, html } from 'lit';
+import { customElement } from 'lit/decorators';
+import 'wired-elements/lib/wired-divider.js';
 
+@customElement('wired-divider-demo')
 export class WiredDividerDemo extends LitElement {
   render() {
     return html`
@@ -36,4 +39,3 @@ export class WiredDividerDemo extends LitElement {
     `;
   }
 }
-customElements.define('wired-divider-demo', WiredDividerDemo);

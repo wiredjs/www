@@ -94,8 +94,7 @@
     }
   </style>
 
-  <script src="https://unpkg.com/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
-  <script defer src="dist/main.min.js"></script>
+  <script type="module" src="bin/main.js"></script>
 </head>
 
 <body>
@@ -130,7 +129,8 @@
     <section style="margin-top: 60px;">
       <h3 style="margin-bottom: 0;">Here's a simple demo:</h3>
       <p>Using wired-element controls to change a sketchy circle drawn using
-        <a class="textlink" href="https://roughjs.com" rel="noopener" target="_blank">rough.js</a>.</p>
+        <a class="textlink" href="https://roughjs.com" rel="noopener" target="_blank">rough.js</a>.
+      </p>
       <wired-card elevation="4">
         <rough-demo></rough-demo>
       </wired-card>

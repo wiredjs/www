@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/wiredjs/www#readme",
   "dependencies": {
+    "@material/mwc-icon": "^0.20.0",
     "lit": "^2.0.0-rc.1",
     "roughjs": "^4.3.1",
     "soso": "github:pshihn/soso",

@@ -1,5 +1,8 @@
-import { LitElement, html } from 'lit-element';
+import { LitElement, html } from 'lit';
+import { customElement } from 'lit/decorators';
+import 'wired-elements/lib/wired-slider.js';
 
+@customElement('wired-slider-demo')
 export class WiredSliderDemo extends LitElement {
   render() {
     return html`
@@ -29,4 +32,3 @@ export class WiredSliderDemo extends LitElement {
     `;
   }
 }
-customElements.define('wired-slider-demo', WiredSliderDemo);
