@@ -1,5 +1,9 @@
-import { LitElement, html } from 'lit-element';
+import { LitElement, html } from 'lit';
+import { customElement } from 'lit/decorators.js';
+import 'wired-elements/lib/wired-radio.js';
+import 'wired-elements/lib/wired-radio-group.js';
 
+@customElement('wired-radio-demo')
 export class WiredRadioDemo extends LitElement {
   render() {
     return html`
@@ -29,4 +33,3 @@ export class WiredRadioDemo extends LitElement {
     `;
   }
 }
-customElements.define('wired-radio-demo', WiredRadioDemo);

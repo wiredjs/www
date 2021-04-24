@@ -1,5 +1,8 @@
-import { LitElement, html } from 'lit-element';
+import { LitElement, html } from 'lit';
+import { customElement } from 'lit/decorators.js';
+import 'wired-elements/lib/wired-fab';
 
+@customElement('wired-fab-demo')
 export class WiredFabDemo extends LitElement {
   render() {
     return html`
@@ -45,4 +48,3 @@ export class WiredFabDemo extends LitElement {
     `;
   }
 }
-customElements.define('wired-fab-demo', WiredFabDemo);

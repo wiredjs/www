@@ -1,5 +1,8 @@
-import { LitElement, html } from 'lit-element';
+import { LitElement, html } from 'lit';
+import { customElement } from 'lit/decorators.js';
+import 'wired-elements/lib/wired-textarea.js';
 
+@customElement('wired-toggle-demo')
 export class WiredToggleDemo extends LitElement {
   render() {
     return html`
@@ -24,4 +27,3 @@ export class WiredToggleDemo extends LitElement {
     `;
   }
 }
-customElements.define('wired-toggle-demo', WiredToggleDemo);

@@ -1,4 +1,4 @@
-import resolve from 'rollup-plugin-node-resolve';
+import resolve from '@rollup/plugin-node-resolve';
 import { terser } from "rollup-plugin-terser";
 
 function onwarn(warning) {
@@ -11,7 +11,7 @@ const outFolder = 'dist';
 
 export default [
   {
-    input: 'src/main.js',
+    input: 'bin/main.js',
     output: {
       file: `${outFolder}/main.min.js`,
       format: 'iife',
@@ -20,12 +20,12 @@ export default [
     onwarn,
     plugins: [resolve(), terser({
       output: {
-        comments: `/xxyyzzz/`
+        comments: false
       }
     })]
   },
   {
-    input: 'src/showcase.js',
+    input: 'bin/showcase.js',
     output: {
       file: `${outFolder}/showcase.min.js`,
       format: 'iife',
@@ -34,7 +34,7 @@ export default [
     onwarn,
     plugins: [resolve(), terser({
       output: {
-        comments: `/xxyyzzz/`
+        comments: false
       }
     })]
   }

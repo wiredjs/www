@@ -1,17 +1,16 @@
-import { LitElement, html } from 'lit-element';
+import { LitElement, html } from 'lit';
+import { customElement, query, property } from 'lit/decorators.js';
 import { controls, getControlByName } from './components';
-import { flex } from 'soso/bin/styles/flex';
-import { repeat } from 'lit-html/directives/repeat';
+import { SososAppShell } from 'soso/bin/components/app-shell';
 
 import 'soso/bin/components/app-shell';
 import 'soso/bin/components/icon-button';
 import 'soso/bin/components/app-bar';
 import 'soso/bin/components/list';
 import 'soso/bin/components/item';
-import 'wired-elements';
 import './icons.js';
 import '@material/mwc-icon';
-import '@material/mwc-icon/mwc-icon-font';
+import 'wired-elements';
 
 import './demo/button';
 import './demo/calendar';
@@ -36,26 +35,27 @@ import './demo/textarea';
 import './demo/toggle';
 import './demo/video';
 
+@customElement('showcase-app')
 export class ShowcaseApp extends LitElement {
-  static get properties() {
-    return {
-      page: { type: Object }
-    };
-  }
+  @property() page = controls[0];
 
-  static get styles() {
-    return flex;
-  }
+  @query('soso-app-shell') private appShell?: SososAppShell;
+  @query('#main') private main?: HTMLDivElement;
 
-  constructor() {
-    super();
-    this.page = controls[0];
-    this.currentDemo = null;
-  }
+  private currentDemo?: HTMLElement;
 
   render() {
     return html`
     <style>
+      * {box-sizing: border-box;}
+      [hidden] {display: none !important;}
+      .horizontal {display: flex; flex-direction: row;}
+      .vertical {display: flex; flex-direction: column;}
+      .center {align-items: center;}
+      .center-center {justify-content: center; align-items: center;}
+      .spaced {justify-content: space-between;}
+      .flex {flex: 1;}
+      .wrap {flex-wrap: wrap;}
       :host {
         display: block;
         --soso-drawer-overlay-bg: #37474F;
@@ -98,12 +98,6 @@ export class ShowcaseApp extends LitElement {
         margin: 20px 0;
         color: white;
       }
-      
-      @media (max-width: 840px) {
-        #barLogoLink {
-          display: block;
-        }
-      }
     </style>
     <soso-app-shell>
       <soso-app-bar slot="toolbar">
@@ -117,14 +111,14 @@ export class ShowcaseApp extends LitElement {
         </a>
       </soso-app-bar>
       <nav slot="drawer">
-        <div class="horizontal layout center">
+        <div class="horizontal center">
           <a href="/">
             <img alt="Wired Elements Logo" class="logo" src="images/logo_400.png">
           </a>
           <a  class="flex" href="/"><div class="drawerTitle">Wired Elements</div></a>
         </div>
         <soso-list .selected="${this.page.name}" @change="${this.onPageSelect}">
-          ${repeat(controls, (d) => d.name, (d) => html`<soso-item .value="${d.name}">${d.name}</soso-item>`)}
+          ${controls.map((d) => html`<soso-item .value="${d.name}">${d.name}</soso-item>`)}
         </soso-list>
       </nav>
       <div id="main" slot="main">
@@ -133,13 +127,14 @@ export class ShowcaseApp extends LitElement {
     `;
   }
 
-  onPageSelect(e) {
+  onPageSelect(e: CustomEvent) {
     const control = getControlByName(e.detail.selected);
     if (control) {
       this.page = control;
     }
-    const shell = this.shadowRoot.querySelector('soso-app-shell');
-    shell.drawerOpen = false;
+    if (this.appShell) {
+      this.appShell.drawerOpen = false;
+    }
   }
 
   updated() {
@@ -152,15 +147,13 @@ export class ShowcaseApp extends LitElement {
       if (this.currentDemo && this.currentDemo.tagName.toLowerCase() === tagName) {
         return;
       }
-      const main = this.shadowRoot.querySelector('#main');
-      if (main) {
+      if (this.main) {
         if (this.currentDemo) {
-          main.removeChild(this.currentDemo);
+          this.main.removeChild(this.currentDemo);
         }
         this.currentDemo = document.createElement(tagName);
-        main.appendChild(this.currentDemo);
+        this.main.appendChild(this.currentDemo);
       }
     }
   }
 }
-customElements.define('showcase-app', ShowcaseApp);

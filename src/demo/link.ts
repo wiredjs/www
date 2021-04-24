@@ -1,5 +1,8 @@
-import { LitElement, html } from 'lit-element';
+import { LitElement, html } from 'lit';
+import { customElement } from 'lit/decorators.js';
+import 'wired-elements/lib/wired-link.js';
 
+@customElement('wired-link-demo')
 export class WiredLinkDemo extends LitElement {
   render() {
     return html`
@@ -24,4 +27,3 @@ export class WiredLinkDemo extends LitElement {
     `;
   }
 }
-customElements.define('wired-link-demo', WiredLinkDemo);

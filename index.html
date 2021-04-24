@@ -12,16 +12,15 @@
   <meta property="og:description" content="Common UI Elements with a sketchy hand-drawn look.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://wiredjs.com/">
-  <meta property="og:image" content="https://wiredjs.com/images/logo_400.png">
-  <meta property="og:image:width" content="400">
-  <meta property="og:image:height" content="400">
+  <meta property="og:image" content="https://wiredjs.com/images/wired-social.png">
+  <meta property="og:image:width" content="1280">
+  <meta property="og:image:height" content="670">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="@YourGuild">
   <meta name="twitter:title" content="Wired Elements">
   <meta name="twitter:description" content="Common UI Elements with a sketchy hand-drawn look.">
-  <meta name="twitter:image" content="https://wiredjs.com/images/logo_400.png">
-  <meta name="twitter:image:width" content="400">
-  <meta name="twitter:image:height" content="400">
+  <meta name="twitter:image" content="https://wiredjs.com/images/wired-social.png">
+  <meta name="twitter:image:width" content="1280">
+  <meta name="twitter:image:height" content="670">
   <link rel="preload" href="fonts/font.woff2" as="font">
   <style>
     @font-face {
@@ -83,6 +82,15 @@
       box-sizing: border-box;
     }
 
+    h1 {
+      font-size: 1.8em;
+      margin: 0;
+    }
+
+    h2 {
+      font-size: 1.3em;
+    }
+
     @media (max-width: 600px) {
       body {
         font-size: 19px;
@@ -95,8 +103,7 @@
     }
   </style>
 
-  <script src="https://unpkg.com/@webcomponents/webcomponentsjs@latest/webcomponents-loader.js"></script>
-  <script defer src="dist/main.min.js"></script>
+  <script type="module" src="bin/main.js"></script>
 </head>
 
 <body>
@@ -120,15 +127,19 @@
         <a href="/showcase.html">
           <wired-button elevation="1">Component Showcase</wired-button>
         </a>
-        <a href="https://github.com/wiredjs/wired-elements">
+        <a href="https://github.com/rough-stuff/wired-elements">
           <wired-button elevation="1">View on Github</wired-button>
+        </a>
+        <a target="_blank" href="https://opencollective.com/rough" rel="noopener">
+          <wired-button elevation="1">Sponsor this project</wired-button>
         </a>
       </p>
     </section>
     <section style="margin-top: 60px;">
       <h3 style="margin-bottom: 0;">Here's a simple demo:</h3>
       <p>Using wired-element controls to change a sketchy circle drawn using
-        <a class="textlink" href="https://roughjs.com" rel="noopener" target="_blank">rough.js</a>.</p>
+        <a class="textlink" href="https://roughjs.com" rel="noopener" target="_blank">rough.js</a>.
+      </p>
       <wired-card elevation="4">
         <rough-demo></rough-demo>
       </wired-card>
@@ -136,23 +147,24 @@
 
     <section style="margin-top: 50px;">
       <h3 style="margin-bottom: 0;">Try It Now</h3>
-      <p>Play with wired-elements live on Glitch:</p>
+      <p>Play with wired-elements live in Sandbox:</p>
       <p>
         <a class="textlink" target="_blank" rel="noopener"
-          href="https://glitch.com/edit/#!/wired-elements-vanilla">Wired
+          href="https://codesandbox.io/s/wired-elements-vanilla-4bpny">Wired
           Elements Vanilla</a>
       </p>
       <p>
         Try it with a framework:
       </p>
       <p>
-        <a class="textlink" target="_blank" rel="noopener" href="https://glitch.com/edit/#!/vue-wired-elements">Wired
-          Elements in Vue</a>
-        <br>
-        <a class="textlink" target="_blank" rel="noopener" href="https://glitch.com/edit/#!/react-wired-elements">Wired
+        <a class="textlink" target="_blank" rel="noopener" href="https://codesandbox.io/s/xrll5wyl8w">Wired
           Elements in React</a>
         <br>
-        <a class="textlink" target="_blank" rel="noopener" href="https://glitch.com/edit/#!/svelte-wired-elements">Wired
+        <a class="textlink" target="_blank" rel="noopener" href="https://codesandbox.io/s/vj389y9375">Wired
+          Elements in Vue</a>
+        <br>
+        <a class="textlink" target="_blank" rel="noopener"
+          href="https://codesandbox.io/s/wired-elements-svelte-4hfkb">Wired
           Elements in Svelte</a>
       </p>
     </section>
@@ -160,11 +172,11 @@
     <section style="margin-top: 40px;">
       <h3 style="margin-bottom: 0;">Documentation</h3>
       <p>Instructions on how to use wired-elements can be found on
-        <a class="textlink" href="https://github.com/wiredjs/wired-elements">wired-elements GitHub page</a>.
+        <a class="textlink" href="https://github.com/rough-stuff/wired-elements">wired-elements GitHub page</a>.
       </p>
       <p>
-        API of specific elements can be found on their respective GitHub page.
-        <a class="textlink" href="https://github.com/wiredjs/wired-elements/tree/master/packages">Here's the list.</a>
+        API of specific elements can be found on their respective page in the Docs.
+        <a class="textlink" href="https://github.com/rough-stuff/wired-elements/tree/master/docs">Here's the list.</a>
       </p>
     </section>
 
@@ -176,10 +188,30 @@
     </section>
 
     <section style="margin-top: 40px;">
+      <h3 style="margin-bottom: 0;">Credits</h3>
+      <p>
+        wired-elements was built using
+        <a class="textlink" target="_blank" rel="noopener" href="https://roughjs.com/">RoughJS</a>
+        and
+        <a class="textlink" target="_blank" rel="noopener" href="https://lit.dev/">Lit</a>.
+      </p>
+    </section>
+
+    <section style="margin-top: 40px;">
+      <h3 style="margin-bottom: 0;">Support this project</h3>
+      <p>
+        Support development of this project by sponsoring on
+        <a class="textlink" target="_blank" rel="noopener" href="https://opencollective.com/rough">Open Collective</a>
+        or
+        <a class="textlink" target="_blank" rel="noopener" href="https://github.com/sponsors/pshihn">Github</a>.
+      </p>
+    </section>
+
+    <section style="margin-top: 40px;">
       <h3 style="margin-bottom: 0;">License</h3>
       <p>
         <a class="textlink" target="_blank" rel="noopener"
-          href="https://github.com/wiredjs/wired-elements/blob/master/LICENSE">MIT
+          href="https://github.com/rough-stuff/wired-elements/blob/master/LICENSE">MIT
           License</a> (c)
         <a class="textlink" target="_blank" rel="noopener" href="https://twitter.com/preetster">Preet Shihn</a>.
       </p>

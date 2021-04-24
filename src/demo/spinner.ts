@@ -1,6 +1,13 @@
-import { LitElement, html } from 'lit-element';
+import { LitElement, html } from 'lit';
+import { customElement, query } from 'lit/decorators.js';
+import { WiredSpinner } from 'wired-elements/lib/wired-spinner.js';
+import 'wired-elements/lib/wired-spinner.js';
+import 'wired-elements/lib/wired-button.js';
 
+@customElement('wired-spinner-demo')
 export class WiredSpinnerDemo extends LitElement {
+  @query('#sp') private sp?: WiredSpinner;
+
   render() {
     return html`
     <style>
@@ -27,8 +34,6 @@ export class WiredSpinnerDemo extends LitElement {
   }
 
   toggle() {
-    const sp = this.shadowRoot.getElementById('sp');
-    sp.spinning = !sp.spinning;
+    this.sp!.spinning = !this.sp!.spinning;
   }
 }
-customElements.define('wired-spinner-demo', WiredSpinnerDemo);

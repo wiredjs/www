@@ -1,5 +1,8 @@
-import { LitElement, html } from 'lit-element';
+import { LitElement, html } from 'lit';
+import { customElement } from 'lit/decorators.js';
+import 'wired-elements/lib/wired-search-input.js';
 
+@customElement('wired-search-input-demo')
 export class WiredSearchInputDemo extends LitElement {
   render() {
     return html`
@@ -18,4 +21,3 @@ export class WiredSearchInputDemo extends LitElement {
     `;
   }
 }
-customElements.define('wired-search-input-demo', WiredSearchInputDemo);
