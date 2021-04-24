@@ -11,7 +11,7 @@ const outFolder = 'dist';
 
 export default [
   {
-    input: 'src/main.js',
+    input: 'bin/main.js',
     output: {
       file: `${outFolder}/main.min.js`,
       format: 'iife',
@@ -25,7 +25,7 @@ export default [
     })]
   },
   {
-    input: 'src/showcase.js',
+    input: 'bin/showcase.js',
     output: {
       file: `${outFolder}/showcase.min.js`,
       format: 'iife',

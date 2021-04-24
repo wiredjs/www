@@ -1,5 +1,5 @@
 import { LitElement, html } from 'lit';
-import { customElement } from 'lit/decorators';
+import { customElement } from 'lit/decorators.js';
 import 'wired-elements/lib/wired-search-input.js';
 
 @customElement('wired-search-input-demo')

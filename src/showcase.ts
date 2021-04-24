@@ -1,5 +1,5 @@
 import { LitElement, html } from 'lit';
-import { customElement, query, property } from 'lit/decorators';
+import { customElement, query, property } from 'lit/decorators.js';
 import { controls, getControlByName } from './components';
 import { SososAppShell } from 'soso/bin/components/app-shell';
 

@@ -1,5 +1,5 @@
 import { LitElement, html } from 'lit';
-import { customElement, query } from 'lit/decorators';
+import { customElement, query } from 'lit/decorators.js';
 import { RoughCanvas } from 'roughjs/bin/canvas';
 import { Options } from 'roughjs/bin/core';
 import { WiredSlider, WiredRadioGroup, WiredCheckbox, WiredCombo } from 'wired-elements';

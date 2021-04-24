@@ -1,5 +1,5 @@
 import { LitElement, html } from 'lit';
-import { customElement, query } from 'lit/decorators';
+import { customElement, query } from 'lit/decorators.js';
 import { WiredProgress } from 'wired-elements/lib/wired-progress.js';
 import 'wired-elements/lib/wired-progress.js';
 import 'wired-elements/lib/wired-button.js';

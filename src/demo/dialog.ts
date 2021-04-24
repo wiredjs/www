@@ -1,8 +1,8 @@
 import { LitElement, html } from 'lit';
-import { customElement, query } from 'lit/decorators';
-import { WiredDialog } from 'wired-elements/lib/wired-dialog';
+import { customElement, query } from 'lit/decorators.js';
+import { WiredDialog } from 'wired-elements/lib/wired-dialog.js';
 import 'wired-elements/lib/wired-button.js';
-import 'wired-elements/lib/wired-dialog';
+import 'wired-elements/lib/wired-dialog.js';
 
 @customElement('wired-dialog-demo')
 export class WiredDialogDemo extends LitElement {

@@ -1,8 +1,8 @@
 import { LitElement, html } from 'lit';
-import { customElement, query } from 'lit/decorators';
-import { WiredSpinner } from 'wired-elements/lib/wired-spinner';
+import { customElement, query } from 'lit/decorators.js';
+import { WiredSpinner } from 'wired-elements/lib/wired-spinner.js';
 import 'wired-elements/lib/wired-spinner.js';
-import 'wired-elements/lib/wired-button';
+import 'wired-elements/lib/wired-button.js';
 
 @customElement('wired-spinner-demo')
 export class WiredSpinnerDemo extends LitElement {
